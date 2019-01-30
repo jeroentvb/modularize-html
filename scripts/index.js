@@ -11,14 +11,18 @@ module.exports = express()
   .listen(3000, () => console.log(`[Server] listening on port 3000...`))
 
 function index (req, res) {
-  res.render('index')
+  res.render('index', {
+    pagename: 'Home'
+  })
 }
 
 function render (req, res) {
   let id = req.url.replace('/', '')
 
   if (fs.existsSync(`src/pages/${id}.ejs`)) {
-    res.render(id)
+    res.render(id, {
+      pagename: id.charAt(0).toUpperCase() + id.substr(1)
+    })
   } else {
     notFound(req, res)
   }

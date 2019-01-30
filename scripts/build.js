@@ -28,7 +28,11 @@ function compileTemplates (files) {
       let template = ejs.compile(data, {
         filename: `./src/pages/${file}`
       })
-      let html = template()
+
+      let name = file === 'index.ejs' ? 'Home' : file.charAt(0).toUpperCase() + file.substr(1).replace('.ejs', '')
+      let html = template({
+        pagename: name
+      })
 
       fs.writeFile(`./public/${file.replace('.ejs', '')}.html`, html, err => {
         if (err) console.error(err)
