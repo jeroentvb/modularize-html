@@ -15,7 +15,10 @@ npm install
 Build your website in the [src](src/) folder. The page templates should go in [src/pages](src/pages). The partials, such as the head and tail, should go in [src/partials](src/partials).
 
 ### Development
-To develop the website, this app uses a simple [express](https://www.npmjs.com/package/express) server. You can run the server using `npm start`.
+To develop the website, this app uses a simple [express](https://www.npmjs.com/package/express) server. You can run the server using `npm start`.  
+
+#### Linking
+Linking to another file is the same as you would in a static html file, so link to `/index.html` and **not** to `/index`, because that won't work after compiling.
 
 #### CSS preprocessor
 You can use your own css preprocessor if you so desire. Just make sure changes in your source file are being watched and compiled a css file and make sure it's linked in [head.ejs](src/partials/head.ejs). Otherwise changes won't show up or be included in the compiled website.

@@ -17,7 +17,13 @@ function index (req, res) {
 }
 
 function render (req, res) {
-  let id = req.url.replace('/', '')
+  if (!req.url.conains('.html')) {
+    console.log(`Please link your files including '.html'`)
+    res.send(`Please link your files including '.html'`)
+    return
+  }
+
+  let id = req.url.replace('/', '').replace('.html', '')
 
   if (fs.existsSync(`src/pages/${id}.ejs`)) {
     res.render(id, {
