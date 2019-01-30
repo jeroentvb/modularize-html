@@ -6,8 +6,8 @@ More info on ejs [here](https://ejs.co/)
 ## Installation
 Install using the following commands
 ```
-git clone
-cd
+git clone https://github.com/jeroentvb/ModularHTML.git
+cd modularhtml
 npm install
 ```
 
