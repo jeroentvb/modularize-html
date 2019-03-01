@@ -23,7 +23,7 @@ function render (req, res) {
     return
   }
 
-  let id = req.url.replace('/', '').replace('.html', '')
+  const id = req.url.replace('/', '').replace('.html', '')
 
   if (fs.existsSync(`src/pages/${id}.ejs`)) {
     res.render(id, {

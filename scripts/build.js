@@ -29,15 +29,18 @@ function compileTemplates (files) {
         filename: `./src/pages/${file}`
       })
 
-      let name = file === 'index.ejs' ? 'Home' : file.charAt(0).toUpperCase() + file.substr(1).replace('.ejs', '')
-      let html = template({
+      const name = file === 'index.ejs' ? 'Home' : file.charAt(0).toUpperCase() + file.substr(1).replace('.ejs', '')
+      const html = template({
         pagename: name
       })
 
       fs.writeFile(`./public/${file.replace('.ejs', '')}.html`, html, err => {
-        if (err) console.error(err)
+        if (err) {
+          console.error(err)
+        } else {
+          console.log('Compiled succesfully')
+        }
       })
     })
   })
-  console.log('Compiled succesfully')
 }
