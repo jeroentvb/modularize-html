@@ -1,12 +1,14 @@
-const express = require('express')
+const app = require('express')
 const fs = require('fs')
 
-module.exports = express()
+app()
   .set('view engine', 'ejs')
   .set('views', 'src/pages')
-  .use(express.static('src'))
+  .use(app.static('src'))
+
   .get('/', index)
   .get('/:id', render)
+
   .use(notFound)
   .listen(3000, () => console.log(`[Server] listening on port 3000...`))
 
