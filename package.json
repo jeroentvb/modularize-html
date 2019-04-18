@@ -1,6 +1,6 @@
 {
   "name": "modularhtml",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -12,9 +12,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cssnano": "^4.1.10",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
-    "fs-extra": "^7.0.1"
+    "fs-extra": "^7.0.1",
+    "postcss": "^7.0.14",
+    "terser": "^3.17.0"
   },
   "devDependencies": {
     "nodemon": "^1.18.9"
