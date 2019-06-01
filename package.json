@@ -1,7 +1,7 @@
 {
   "name": "modularhtml",
   "version": "1.1.0",
-  "description": "",
+  "description": "Create a static website from EJS templates",
   "main": "index.js",
   "scripts": {
     "build": "node scripts/build.js",
@@ -11,6 +11,10 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeroentvb/modularHTML.git"
+  },
   "dependencies": {
     "cssnano": "^4.1.10",
     "ejs": "^2.6.1",
