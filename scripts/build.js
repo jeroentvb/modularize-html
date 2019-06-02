@@ -40,7 +40,8 @@ function compileTemplates () {
 
         const name = file === 'index.ejs' ? 'Home' : file.charAt(0).toUpperCase() + file.substr(1).replace('.ejs', '')
         const html = template({
-          pagename: name
+          pagename: name,
+          liveReload: ''
         })
 
         fs.writeFile(`./dist/${file.replace('.ejs', '')}.html`, html, err => {
