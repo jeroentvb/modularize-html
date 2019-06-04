@@ -6,7 +6,8 @@
   "scripts": {
     "build": "node scripts/build.js",
     "newpage": "node scripts/newpage.js",
-    "start": "node scripts/index.js"
+    "start": "node scripts/index.js",
+    "dev": "nodemon scripts/"
   },
   "keywords": [],
   "author": "",
