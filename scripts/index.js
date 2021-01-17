@@ -6,6 +6,11 @@ const watcher = chokidar.watch('./src', {
   ignored: /(^|[/\\])\../
 })
 
+const frontendDevDependencies = {
+  liveReload: `<script src="/socket.io.min.js"></script><script src="/devDependencies/live-reload.js"></script>`,
+  removeWebp: `<script src="/devDependencies/remove-webp.js"></script>`
+}
+
 const server = app()
   .set('view engine', 'ejs')
   .set('views', 'src/pages')
@@ -24,7 +29,7 @@ const io = require('socket.io')(server)
 function index (_req, res) {
   res.render('index', {
     pagename: 'Home',
-    liveReload: `<script src="/socket.io.min.js"></script><script src="/devDependencies/live-reload.js"></script>`
+    frontendDevDependencies: frontendDevDependencies
   })
 }
 
@@ -40,7 +45,7 @@ function render (req, res) {
   if (fs.existsSync(`src/pages/${id}.ejs`)) {
     res.render(id, {
       pagename: id.charAt(0).toUpperCase() + id.substr(1),
-      liveReload: `<script src="/socket.io.min.js"></script><script src="/devDependencies/live-reload.js"></script>`
+      frontendDevDependencies
     })
   } else {
     notFound(req, res)

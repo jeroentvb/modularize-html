@@ -1,13 +1,14 @@
 const folderActions = require('./build/folder-actions')
-const copyActions = require('./build/copy-actions')
+const assets = require('./build/assets')
 const minify = require('./build/minify')
 const templates = require('./build/templates')
 
 folderActions.removeDistFolder()
 folderActions.createDistFolder()
 
-copyActions.copyAssets('fonts')
-copyActions.copyAssets('img')
+assets.copy('fonts')
+assets.copy('img')
+assets.compileWebp()
 
 minify.js()
 minify.css()
