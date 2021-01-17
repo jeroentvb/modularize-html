@@ -1,5 +1,6 @@
 const app = require('express')
 const fs = require('fs')
+const path = require('path')
 const chokidar = require('chokidar')
 const watcher = chokidar.watch('./src', {
   ignored: /(^|[/\\])\../
@@ -10,6 +11,8 @@ const server = app()
   .set('views', 'src/pages')
   .use(app.static('src'))
 
+  .get('/socket.io.min.js', getSocketIoClient)
+
   .get('/', index)
   .get('/:id', render)
 
@@ -18,10 +21,10 @@ const server = app()
 
 const io = require('socket.io')(server)
 
-function index (req, res) {
+function index (_req, res) {
   res.render('index', {
     pagename: 'Home',
-    liveReload: `<script src="/devDependencies/socket.io.js"></script><script src="/devDependencies/live-reload.js"></script>`
+    liveReload: `<script src="/socket.io.min.js"></script><script src="/devDependencies/live-reload.js"></script>`
   })
 }
 
@@ -37,19 +40,23 @@ function render (req, res) {
   if (fs.existsSync(`src/pages/${id}.ejs`)) {
     res.render(id, {
       pagename: id.charAt(0).toUpperCase() + id.substr(1),
-      liveReload: `<script src="/devDependencies/socket.io.js"></script><script src="/devDependencies/live-reload.js"></script>`
+      liveReload: `<script src="/socket.io.min.js"></script><script src="/devDependencies/live-reload.js"></script>`
     })
   } else {
     notFound(req, res)
   }
 }
 
-function notFound (req, res) {
+function getSocketIoClient (_req, res) {
+  res.sendFile(path.join(__dirname, '/../node_modules/socket.io/client-dist/socket.io.min.js'));
+}
+
+function notFound (_req, res) {
   res.status(404).send('404 not found')
 }
 
 watcher
-  .on('add', path => io.emit('reload'))
-  .on('change', path => io.emit('reload'))
-  .on('unlink', path => io.emit('reload'))
+  .on('add', _path => io.emit('reload'))
+  .on('change', _path => io.emit('reload'))
+  .on('unlink', _path => io.emit('reload'))
   .on('error', err => console.error('Error happened', err))

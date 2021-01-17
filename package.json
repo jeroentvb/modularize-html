@@ -11,7 +11,7 @@
     "dev": "nodemon scripts/"
   },
   "keywords": [],
-  "author": "",
+  "author": "jeroentvb",
   "license": "ISC",
   "repository": {
     "type": "git",
@@ -33,11 +33,6 @@
     "ignore": [
       "src/*",
       "public/*"
-    ]
-  },
-  "standard": {
-    "ignore": [
-      "/src/devDependencies/socket.io.js"
     ]
   }
 }
