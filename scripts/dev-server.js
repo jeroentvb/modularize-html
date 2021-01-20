@@ -6,9 +6,11 @@ const watcher = chokidar.watch('./src', {
   ignored: /(^|[/\\])\../
 })
 
+const config = require('../modular-html-config.json')
+
 const frontendDevDependencies = {
   liveReload: `<script src="/socket.io.min.js"></script><script src="/devDependencies/live-reload.js"></script>`,
-  removeWebp: `<script src="/devDependencies/remove-webp.js"></script>`
+  removeWebp: config.development.removeWebpSources ? `<script src="/devDependencies/remove-webp.js"></script>` : ''
 }
 
 const server = app()
@@ -34,8 +36,7 @@ function index (_req, res) {
 }
 
 function render (req, res) {
-  if (!req.url.includes('.html')) {
-    // console.log(`Please link your files including '.html'`)
+  if (config.development.staticSite && !req.url.includes('.html')) {
     res.send(`Please link your files including '.html'`)
     return
   }
