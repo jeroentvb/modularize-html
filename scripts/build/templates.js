@@ -2,6 +2,8 @@ const fs = require('fs-extra')
 const path = require('path')
 const ejs = require('ejs')
 
+const messages = require('./messages')
+
 function compile () {
   fs.readdir('./src/pages/', (err, files) => {
     if (err) throw new Error(err)
@@ -24,7 +26,7 @@ function compile () {
           if (err) {
             console.error(err)
           } else {
-            console.log('Compiled succesfully')
+            console.log(messages.COMPILED_SUCCESSFULLY)
           }
         })
       })

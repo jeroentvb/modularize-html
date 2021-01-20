@@ -3,7 +3,12 @@ const Terser = require('terser')
 const postcss = require('postcss')
 const cssnano = require('cssnano')
 
+const messages = require('./messages')
+const config = require('../../modular-html-config.json')
+
 function js () {
+  if (!config.build.minify.js) return console.log(messages.JS_NOT_MINIFIED)
+
   fs.readdir('./src/assets/js', (err, files) => {
     files.forEach(file => {
       if (err) throw new Error(err)
@@ -18,7 +23,7 @@ function js () {
           if (err) {
             console.error(err)
           } else {
-            console.log('Minified JS')
+            console.log(messages.MINIFIED_JS)
           }
         })
       })
@@ -26,8 +31,9 @@ function js () {
   })
 }
 
-
 function css () {
+  if (!config.build.minify.css) return console.log(messages.CSS_NOT_MINIFIED)
+
   fs.readdir('./src/assets/css', (err, files) => {
     if (err) throw new Error(err)
     if (!fs.existsSync('./dist/assets/css')) fs.mkdirSync('./dist/assets/css')
@@ -41,8 +47,8 @@ function css () {
         postcss([cssnano])
           .process(css, { from: undefined, to: undefined })
           .then(result => fs.writeFile(`./dist/assets/css/${file}`, result.css, () => true))
-          .then(() => console.log('Minified CSS'))
-          .catch(err => console.error(`The css could not be minified because of the following error: ${err}`))
+          .then(() => console.log(messages.MINIFIED_CSS))
+          .catch(err => console.error(messages.CSS_ERROR(err)))
       })
     })
   })
