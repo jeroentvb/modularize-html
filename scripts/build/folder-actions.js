@@ -1,21 +1,23 @@
 const fs = require('fs-extra')
 
-const messages = require('./messages')
+const { CREATED_DIST, CREATED_ASSETS } = require('./messages')
+const { DIST_FOLDER, ASSETS_FOLDER } = require('./paths')
 
 function removeDistFolder () {
-  if (fs.existsSync('./dist')) {
-    fs.removeSync('./dist')
+  if (fs.existsSync(DIST_FOLDER)) {
+    fs.removeSync(DIST_FOLDER)
   }
 }
 
 function createDistFolder () {
-  if (!fs.existsSync('./dist')) {
-    fs.mkdirSync('./dist')
-    console.log(messages.CREATED_DIST)
+  if (!fs.existsSync(DIST_FOLDER)) {
+    fs.mkdirSync(DIST_FOLDER)
+    console.log(CREATED_DIST)
   }
-  if (!fs.existsSync('./dist/assets')) {
-    fs.mkdirSync('./dist/assets')
-    console.log(messages.CREATED_ASSETS)
+
+  if (!fs.existsSync(ASSETS_FOLDER)) {
+    fs.mkdirSync(ASSETS_FOLDER)
+    console.log(CREATED_ASSETS)
   }
 }
 

@@ -2,14 +2,15 @@ const fs = require('fs-extra')
 const path = require('path')
 const ejs = require('ejs')
 
-const messages = require('./messages')
+const { COMPILED_SUCCESSFULLY } = require('./messages')
+const { DIST_FOLDER, SRC_PAGES_FOLDER } = require('./paths')
 
 function compile () {
-  fs.readdir('./src/pages/', (err, files) => {
+  fs.readdir(`${SRC_PAGES_FOLDER}/`, (err, files) => {
     if (err) throw new Error(err)
 
     files.forEach(file => {
-      fs.readFile(path.resolve(`./src/pages/${file}`), 'utf8', (err, data) => {
+      fs.readFile(path.resolve(`${SRC_PAGES_FOLDER}/${file}`), 'utf8', (err, data) => {
         if (err) console.error(err)
 
         let template = ejs.compile(data, {
@@ -22,11 +23,11 @@ function compile () {
           frontendDevDependencies: ''
         })
 
-        fs.writeFile(`./dist/${file.replace('.ejs', '')}.html`, html, err => {
+        fs.writeFile(`${DIST_FOLDER}/${file.replace('.ejs', '')}.html`, html, err => {
           if (err) {
             console.error(err)
           } else {
-            console.log(messages.COMPILED_SUCCESSFULLY)
+            console.log(COMPILED_SUCCESSFULLY)
           }
         })
       })

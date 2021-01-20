@@ -3,27 +3,35 @@ const Terser = require('terser')
 const postcss = require('postcss')
 const cssnano = require('cssnano')
 
-const messages = require('./messages')
-const config = require('../../modular-html-config.json')
+const {
+  JS_NOT_MINIFIED,
+  MINIFIED_JS,
+  CSS_NOT_MINIFIED,
+  MINIFIED_CSS,
+  CSS_ERROR
+} = require('./messages')
+const { CONFIG, ASSETS_FOLDER_JS, ASSETS_FOLDER_CSS, SRC_ASSETS_FOLDER } = require('./paths')
+
+const config = require(CONFIG)
 
 function js () {
-  if (!config.build.minify.js) return console.log(messages.JS_NOT_MINIFIED)
+  if (!config.build.minify.js) return console.log(JS_NOT_MINIFIED)
 
-  fs.readdir('./src/assets/js', (err, files) => {
+  fs.readdir(`${SRC_ASSETS_FOLDER}/js`, (err, files) => {
     files.forEach(file => {
       if (err) throw new Error(err)
-      if (!fs.existsSync('./dist/assets/js')) fs.mkdirSync('./dist/assets/js')
+      if (!fs.existsSync(ASSETS_FOLDER_JS)) fs.mkdirSync(ASSETS_FOLDER_JS)
 
-      fs.readFile(`./src/assets/js/${file}`, 'utf8', (err, data) => {
+      fs.readFile(`${SRC_ASSETS_FOLDER}/js/${file}`, 'utf8', (err, data) => {
         if (err) throw new Error(err)
 
         const code = Terser.minify(data)
 
-        fs.writeFile(`./dist/assets/js/${file}`, code.code, err => {
+        fs.writeFile(`${ASSETS_FOLDER_JS}/${file}`, code.code, err => {
           if (err) {
             console.error(err)
           } else {
-            console.log(messages.MINIFIED_JS)
+            console.log(MINIFIED_JS)
           }
         })
       })
@@ -32,11 +40,11 @@ function js () {
 }
 
 function css () {
-  if (!config.build.minify.css) return console.log(messages.CSS_NOT_MINIFIED)
+  if (!config.build.minify.css) return console.log(CSS_NOT_MINIFIED)
 
   fs.readdir('./src/assets/css', (err, files) => {
     if (err) throw new Error(err)
-    if (!fs.existsSync('./dist/assets/css')) fs.mkdirSync('./dist/assets/css')
+    if (!fs.existsSync(ASSETS_FOLDER_CSS)) fs.mkdirSync(ASSETS_FOLDER_CSS)
 
     files = files.filter(file => file.slice(-4) === '.css')
 
@@ -46,9 +54,9 @@ function css () {
 
         postcss([cssnano])
           .process(css, { from: undefined, to: undefined })
-          .then(result => fs.writeFile(`./dist/assets/css/${file}`, result.css, () => true))
-          .then(() => console.log(messages.MINIFIED_CSS))
-          .catch(err => console.error(messages.CSS_ERROR(err)))
+          .then(result => fs.writeFile(`${ASSETS_FOLDER_CSS}/${file}`, result.css, () => true))
+          .then(() => console.log(MINIFIED_CSS))
+          .catch(err => console.error(CSS_ERROR(err)))
       })
     })
   })
