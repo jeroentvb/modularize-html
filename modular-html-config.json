@@ -1,13 +1,13 @@
 {
   "build": {
     "minify": {
-      "js": false,
-      "css": false
+      "js": true,
+      "css": true
     },
-    "encodeImagesWebp": false
+    "encodeImagesWebp": true
   },
   "development": {
     "removeWebpSources": true,
-    "staticSite": false
+    "staticSite": true
   }
 }
