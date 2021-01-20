@@ -9,16 +9,19 @@ It can also minify js & css, and encode png and jpeg files to webp on build.
   + [build.minify.js](#buildminifyjs)
   + [build.minify.css](#buildminifycss)
   + [build.encodeImagesWebp](#buildencodeimageswebp)
+  + [build.pageTitle.home](#buildpagetitlehome)
+  + [build.pageTitle.suffix](#buildpagetitlesuffix)
   + [development.removeWebpSources](#developmentremovewebpsources)
   + [development.staticSite](#developmentstaticsite)
 * [Development](#development)
   + [New page](#new-page)
+  + [Page titles](#page-titles)
   + [webp images](#webp-images)
   + [Linking html files](#linking-html-files)
   + [CSS preprocessor](#css-preprocessor)
   + [JS minify/transpile](#js-minify-transpile)
   + [Build the website](#build-the-website)
-  + [Updating](#updating)
+* [Updating](#updating)
 
 ## Installation
 Install using the following commands
