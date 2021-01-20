@@ -6,11 +6,11 @@ const watcher = chokidar.watch('./src', {
   ignored: /(^|[/\\])\../
 })
 
-const config = require('../modular-html-config.json')
+const config = require('../../modular-html-config.json')
 
 const frontendDevDependencies = {
-  liveReload: `<script src="/socket.io.min.js"></script><script src="/devDependencies/live-reload.js"></script>`,
-  removeWebp: config.development.removeWebpSources ? `<script src="/devDependencies/remove-webp.js"></script>` : ''
+  liveReload: `<script src="/socket.io.min.js"></script><script src="/live-reload.js"></script>`,
+  removeWebp: config.development.removeWebpSources ? `<script src="/remove-webp.js"></script>` : ''
 }
 
 const server = app()
@@ -19,6 +19,8 @@ const server = app()
   .use(app.static('src'))
 
   .get('/socket.io.min.js', getSocketIoClient)
+  .get('/live-reload.js', getLiveReloadClient)
+  .get('/remove-webp.js', getRemoveWebpFile)
 
   .get('/', index)
   .get('/:id', render)
@@ -54,7 +56,15 @@ function render (req, res) {
 }
 
 function getSocketIoClient (_req, res) {
-  res.sendFile(path.join(__dirname, '/../node_modules/socket.io/client-dist/socket.io.min.js'));
+  res.sendFile(path.join(__dirname, '/../../node_modules/socket.io/client-dist/socket.io.min.js'))
+}
+
+function getLiveReloadClient (_req, res) {
+  res.sendFile(path.join(__dirname, './client-files/live-reload.js'))
+}
+
+function getRemoveWebpFile (_req, res) {
+  res.sendFile(path.join(__dirname, './client-files/remove-webp.js'))
 }
 
 function notFound (_req, res) {
