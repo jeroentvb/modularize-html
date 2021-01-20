@@ -45,13 +45,20 @@ Minify the CSS files on build.
 *Boolean*  
 Encode `.jpg` and `.png` images to `.webp` on build. More info [here](#webp-images).
 
+### build.pageTitle.home
+*String*  
+`<title>` for the `index.html` file.
+
+### build.pageTitle.suffix
+*String*  
+Suffix for the page `<title>`. Can be empty.
+
 ### development.removeWebpSources
 *Boolean*  
 Remove `.webp` `<source>` tags from a `<picture>` element while running the dev server. More info [here](#webp-images).
 
 ### development.staticSite
 *Boolean*  
-*Default:*  
 Send message to the browser if the link navigate to doesn't contain `.html`. That means it's not linked in the html with `.html` and won't work as a static site.  
 If you are planning on hosting the pages on a web server, you won't need to do so, because the server should resolve the url.
 
@@ -60,6 +67,9 @@ To develop the website, this app uses a simple [express](https://www.npmjs.com/p
 
 ### New page
 To create a new page use `npm run new-page pagename`. Where `pagename` would be the name of your page. This creates a new template with the head and tail already linked.
+
+### Page titles
+The page titles are based on the filenames. The only exception being index(.html), which can be set in the [config](#build.pageTitle.home). You can put a suffix behind the title, also found in the [config](#build.pageTitle.suffix). If you want to use a custom page title, you must add your own `<head>` and __not__ use the default `head.ejs`.
 
 ### webp images
 While developing you can enable the options under the `webp` key in the config to develop your website without having to worry about compiling images to `.webp` format. This is done in the build step if `encodeImages` is set to `true`.  

@@ -32,7 +32,7 @@ const io = require('socket.io')(server)
 
 function index (_req, res) {
   res.render('index', {
-    pagename: 'Home',
+    pagename: config.build.pageTitle.home + ' ' + config.build.pageTitle.suffix,
     frontendDevDependencies: frontendDevDependencies
   })
 }
@@ -47,7 +47,7 @@ function render (req, res) {
 
   if (fs.existsSync(`src/pages/${id}.ejs`)) {
     res.render(id, {
-      pagename: id.charAt(0).toUpperCase() + id.substr(1),
+      pagename: id.charAt(0).toUpperCase() + id.substr(1) + ' ' + config.build.pageTitle.suffix,
       frontendDevDependencies
     })
   } else {
