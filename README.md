@@ -1,7 +1,6 @@
 # ModularHTML
 This project uses ejs to allow building a static website from modular ejs (HTML) files.  
-It's using ejs because you won't need to learn a new language, only a few new tags.  
-More info on ejs [here](https://ejs.co/)
+It can also minify js & css, and encode png and jpeg files to webp on build.  
 
 ## Table of contents
 * [Installation](#installation)
@@ -19,6 +18,7 @@ More info on ejs [here](https://ejs.co/)
   + [CSS preprocessor](#css-preprocessor)
   + [JS minify/transpile](#js-minify-transpile)
   + [Build the website](#build-the-website)
+  + [Updating](#updating)
 
 ## Installation
 Install using the following commands
@@ -76,3 +76,6 @@ You can use your own js transpiler if you so desire. Just make sure it's compile
 
 ### Build the website
 If you are done you can build the website using `npm run build`. This will copy the assets folder to a newly created `public` folder. It also compiles the ejs templates and creates an html file in the `public folder`.
+
+## Updating
+To update your project to the lastest version of `modular-html` simply copy the `scripts` and `src/devDependencies` folders from the latest release to your project root.
