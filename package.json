@@ -8,10 +8,17 @@
     "build": "node scripts/build/build.js",
     "new-page": "node scripts/development/newpage.js",
     "start": "node scripts/development/dev-server.js",
-    "dev": "nodemon scripts/"
+    "dev": "nodemon --exec npm start"
   },
   "bin": "./bin/cli.js",
-  "keywords": ["modular", "html", "modular-html", "EJS", "webp", "framework"],
+  "keywords": [
+    "modular",
+    "html",
+    "modular-html",
+    "EJS",
+    "webp",
+    "framework"
+  ],
   "author": "jeroentvb",
   "license": "ISC",
   "repository": {
@@ -25,13 +32,17 @@
     "cwebp": "^2.0.5",
     "ejs": "^3.1.5",
     "express": "^4.17.1",
-    "fs-extra": "^9.0.1",
+    "fs-extra": "^9.1.0",
     "nodemon": "^2.0.7",
     "postcss": "^8.2.4",
     "socket.io": "^3.1.0",
     "terser": "^5.5.1"
   },
   "devDependencies": {},
+  "files": [
+    "/bin",
+    "/scripts"
+  ],
   "nodemonConfig": {
     "ignore": [
       "src/*",
