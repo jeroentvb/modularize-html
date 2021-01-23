@@ -1,5 +1,5 @@
 {
-  "name": "modular-html",
+  "name": "component-html",
   "version": "3.0.0",
   "description": "CLI package to create a static website from EJS templates",
   "main": "./bin/cli.js",
@@ -13,6 +13,7 @@
   "bin": "./bin/cli.js",
   "keywords": [
     "modular",
+    "component",
     "html",
     "modular-html",
     "EJS",

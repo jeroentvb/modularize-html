@@ -1,1 +1,1 @@
-This folder is not included in the final package and only live here for development purposes.
+This folder is __not__ included in the final package and only lives here for development purposes.
