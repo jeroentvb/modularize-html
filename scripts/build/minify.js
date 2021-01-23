@@ -10,7 +10,7 @@ const {
   MINIFIED_CSS,
   CSS_ERROR
 } = require('./messages')
-const { CONFIG, ASSETS_FOLDER_JS, ASSETS_FOLDER_CSS, SRC_ASSETS_FOLDER } = require('./paths')
+const { CONFIG, ASSETS_FOLDER_JS, ASSETS_FOLDER_CSS, SRC_ASSETS_FOLDER } = require('../helper/paths')
 
 const config = require(CONFIG)
 

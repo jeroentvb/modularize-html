@@ -6,7 +6,9 @@ const watcher = chokidar.watch('./src', {
   ignored: /(^|[/\\])\../
 })
 
-const config = require('../../modular-html-config.json')
+const { CONFIG } = require('../helper/paths')
+
+const config = require(CONFIG)
 
 const frontendDevDependencies = {
   liveReload: `<script src="/socket.io.min.js"></script><script src="/live-reload.js"></script>`,

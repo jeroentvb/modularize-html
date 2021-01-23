@@ -2,7 +2,7 @@ const fs = require('fs-extra')
 const CWebp = require('cwebp').CWebp
 
 const { IMAGES_NOT_ENCODED_WEBP, GENERAL_ERR, ENCODED_WEBP, COPY_SUCCESFUL } = require('./messages')
-const { CONFIG, ASSETS_FOLDER_IMG, SRC_ASSETS_FOLDER } = require('./paths')
+const { CONFIG, ASSETS_FOLDER_IMG, SRC_ASSETS_FOLDER } = require('../helper/paths')
 
 const config = require(CONFIG)
 

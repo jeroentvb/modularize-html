@@ -3,7 +3,7 @@ const path = require('path')
 const ejs = require('ejs')
 
 const { COMPILED_SUCCESSFULLY } = require('./messages')
-const { DIST_FOLDER, SRC_PAGES_FOLDER, CONFIG } = require('./paths')
+const { DIST_FOLDER, SRC_PAGES_FOLDER, CONFIG } = require('../helper/paths')
 
 const config = require(CONFIG)
 

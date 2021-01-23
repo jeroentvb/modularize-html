@@ -1,4 +1,6 @@
-{
+const fs = require('fs')
+
+const CONFIG = {
   "build": {
     "minify": {
       "js": true,
@@ -15,3 +17,10 @@
     "staticSite": true
   }
 }
+
+
+function createConfig () {
+  fs.writeFileSync('modular-html-config.json', JSON.stringify(CONFIG, null, 2))
+}
+
+module.exports = createConfig

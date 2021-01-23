@@ -1,7 +1,7 @@
 {
-  "name": "modularhtml",
+  "name": "modular-html",
   "version": "2.0.0",
-  "description": "Create a static website from EJS templates",
+  "description": "CLI package to create a static website from EJS templates",
   "main": "index.js",
   "private": true,
   "scripts": {
@@ -10,7 +10,8 @@
     "start": "node scripts/development/dev-server.js",
     "dev": "nodemon scripts/"
   },
-  "keywords": [],
+  "bin": "./bin/cli.js",
+  "keywords": ["modular", "html", "modular-html", "EJS", "webp", "framework"],
   "author": "jeroentvb",
   "license": "ISC",
   "repository": {

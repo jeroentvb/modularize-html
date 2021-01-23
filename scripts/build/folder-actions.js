@@ -1,7 +1,7 @@
 const fs = require('fs-extra')
 
 const { CREATED_DIST, CREATED_ASSETS } = require('./messages')
-const { DIST_FOLDER, ASSETS_FOLDER } = require('./paths')
+const { DIST_FOLDER, ASSETS_FOLDER } = require('../helper/paths')
 
 function removeDistFolder () {
   if (fs.existsSync(DIST_FOLDER)) {
