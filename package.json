@@ -1,13 +1,13 @@
 {
   "name": "modular-html",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "CLI package to create a static website from EJS templates",
-  "main": "index.js",
-  "private": true,
+  "main": "./bin/cli.js",
   "scripts": {
     "build": "node scripts/build/build.js",
     "new-page": "node scripts/development/newpage.js",
     "start": "node scripts/development/dev-server.js",
+    "create-config": "node scripts/development/create-config.js",
     "dev": "nodemon --exec npm start"
   },
   "bin": "./bin/cli.js",
