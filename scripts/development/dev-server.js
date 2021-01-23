@@ -6,7 +6,7 @@ const watcher = chokidar.watch('./src', {
   ignored: /(^|[/\\])\../
 })
 
-const { CONFIG } = require('../helper/paths')
+const { ROOT, CONFIG } = require('../helper/paths')
 
 const config = require(CONFIG)
 
@@ -58,7 +58,7 @@ function render (req, res) {
 }
 
 function getSocketIoClient (_req, res) {
-  res.sendFile(path.join(__dirname, '/../../node_modules/socket.io/client-dist/socket.io.min.js'))
+  res.sendFile(path.join(ROOT, '/node_modules/socket.io/client-dist/socket.io.min.js'))
 }
 
 function getLiveReloadClient (_req, res) {

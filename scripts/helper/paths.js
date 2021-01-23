@@ -13,6 +13,7 @@ const SRC_ASSETS_FOLDER = ROOT + '/src/assets'
 const SRC_PAGES_FOLDER = ROOT + '/src/pages'
 
 module.exports = {
+  ROOT,
   CONFIG,
   DIST_FOLDER,
   ASSETS_FOLDER,
