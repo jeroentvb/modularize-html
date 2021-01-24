@@ -19,7 +19,7 @@ const _CONFIG = {
 }
 
 function createConfig () {
-  fs.writeFileSync('modular-html-config.json', JSON.stringify(_CONFIG, null, 2))
+  fs.writeFileSync('modularize-html-config.json', JSON.stringify(_CONFIG, null, 2))
 }
 
 module.exports = createConfig

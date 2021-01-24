@@ -1,5 +1,5 @@
 {
-  "name": "component-html",
+  "name": "modularize-html",
   "version": "3.0.0",
   "description": "CLI package to create a static website from EJS templates",
   "main": "./bin/cli.js",
@@ -13,12 +13,12 @@
   "bin": "./bin/cli.js",
   "keywords": [
     "modular",
-    "component",
     "html",
-    "modular-html",
+    "component",
     "EJS",
     "webp",
-    "framework"
+    "framework",
+    "modular-html"
   ],
   "author": "jeroentvb",
   "license": "ISC",

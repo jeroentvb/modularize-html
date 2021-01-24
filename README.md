@@ -1,8 +1,8 @@
-# Modular html
+# Modularize html
 This CLI package uses [ejs](https://ejs.co/#docs) to allow building a static website from modular ejs (HTML) files. The main goal is to enable a developers to create a static site in a modular way. It's also meant to be as simple as possible, while applying some best practices at build.   
 It can also minify js & css, and encode png and jpeg files to webp on build.
 
-Also check out the [boiler plate repo](https://github.com/jeroentvb/modular-html-boilerplate) which uses this package.
+Also check out the [boiler plate repo](https://github.com/jeroentvb/modularize-html-boilerplate) which uses this package.
 
 ## Table of contents
 * [Installation](#installation)
@@ -27,16 +27,16 @@ Also check out the [boiler plate repo](https://github.com/jeroentvb/modular-html
 ## Installation
 Install using the following commands
 ```sh
-npm install component-html
+npm install modularize-html
 ```
 
 ## Usage
 Add the following lines in your `package.json` under `scripts`:  
 ```json
-"create-config": "component-html create-config",
-"dev": "component-html serve",
-"new-page": "component-html new-page",
-"build": "component-html build"
+"create-config": "modularize-html create-config",
+"dev": "modularize-html serve",
+"new-page": "modularize-html new-page",
+"build": "modularize-html build"
 ```
 
 Next, run `npm run create-config`. This creates the necessary config file. Ater that you can run `npm run dev`, and start developing.
@@ -44,7 +44,7 @@ Next, run `npm run create-config`. This creates the necessary config file. Ater 
 Build your website in a folder called `src` in the root directory of your project. The page templates should go in `src/pages`. Partials/components can go into any directory. Just link them in your page to use them.
 
 ## Config
-There are a few configurable options for modular-html in `modular-html-config.json`.
+There are a few configurable options for modularize-html in `modularize-html-config.json`.
 ### build.minify.js
 *Boolean*  
 Minify the JavaScript files on build.
