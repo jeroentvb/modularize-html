@@ -11,20 +11,11 @@
     "dev": "nodemon --exec npm start"
   },
   "bin": "./bin/cli.js",
-  "keywords": [
-    "modular",
-    "html",
-    "component",
-    "EJS",
-    "webp",
-    "framework",
-    "modular-html"
-  ],
   "author": "jeroentvb",
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jeroentvb/modularHTML.git"
+    "url": "git+https://github.com/jeroentvb/modularize-html.git"
   },
   "dependencies": {
     "chalk": "^4.1.0",
@@ -49,5 +40,18 @@
       "src/*",
       "public/*"
     ]
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/jeroentvb/modularize-html/issues"
+  },
+  "homepage": "https://github.com/jeroentvb/modularize-html#readme",
+  "keywords": [
+    "modular",
+    "html",
+    "component",
+    "EJS",
+    "webp",
+    "framework",
+    "modular-html"
+  ]
 }
