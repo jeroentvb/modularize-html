@@ -7,30 +7,40 @@ switch (process.argv[2]) {
   }
 
   case 'build': {
-    require('../scripts/build/build')
+    const build = require('../scripts/build/build')
+    build()
+
     break
   }
 
   case 'new-page': {
-    require('../scripts/development/newpage')
+    const createNewPage = require('../scripts/development/newpage')
+    const pageName = process.argv[3]
+
+    createNewPage(pageName)
+
     break
   }
 
   case 'create-config': {
     const createConfig = require('../scripts/helper/create-config')
-
     createConfig()
 
     break
   }
 
   case undefined: {
-    console.error('No command specified!')
+    const chalk = require('chalk')
+    const { APP_NAME } = require('../scripts/helper/messages')
+    console.error(chalk.red(`${APP_NAME} no command specified!`))
+
     break
   }
 
   default: {
-    console.error('Invalid command!')
+    const chalk = require('chalk')
+    console.error(chalk.red(`${APP_NAME} invalid command`))
+
     break
   }
 }

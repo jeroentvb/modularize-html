@@ -1,6 +1,6 @@
 const fs = require('fs-extra')
 
-const { CREATED_DIST, CREATED_ASSETS } = require('./messages')
+const { CREATED_DIST, CREATED_ASSETS } = require('../helper/messages')
 const { DIST_FOLDER, ASSETS_FOLDER } = require('../helper/paths')
 
 function removeDistFolder () {

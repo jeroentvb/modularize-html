@@ -3,14 +3,22 @@ const assets = require('./assets')
 const minify = require('./minify')
 const templates = require('./templates')
 
-folderActions.removeDistFolder()
-folderActions.createDistFolder()
+const { COMPILED_SUCCESSFULLY, GENERAL_ERR } = require('../helper/messages')
 
-assets.copy('fonts')
-assets.copy('img')
-assets.compileWebp()
+function build () {
+  folderActions.removeDistFolder()
+  folderActions.createDistFolder()
 
-minify.js()
-minify.css()
+  Promise.all([
+    assets.copy('fonts'),
+    assets.copy('img')
+      .then(assets.compileWebp),
+    minify.js(),
+    minify.css(),
+    templates.compile()
+  ])
+    .then(() => console.log(COMPILED_SUCCESSFULLY))
+    .catch((err) => console.error(GENERAL_ERR(err)))
+}
 
-templates.compile()
+module.exports = build
