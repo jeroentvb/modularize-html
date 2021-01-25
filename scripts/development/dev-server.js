@@ -35,7 +35,8 @@ const io = require('socket.io')(server)
 function index (_req, res) {
   res.render('index', {
     pagename: config.build.pageTitle.home + ' ' + config.build.pageTitle.suffix,
-    frontendDevDependencies: frontendDevDependencies
+    frontendDevDependencies,
+    ...config.customTemplateVariables
   })
 }
 

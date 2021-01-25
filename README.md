@@ -17,6 +17,7 @@ Also check out the [boiler plate repo](https://github.com/jeroentvb/modularize-h
   + [build.pageTitle.suffix](#buildpagetitlesuffix)
   + [development.removeWebpSources](#developmentremovewebpsources)
   + [development.staticSite](#developmentstaticsite)
+  + [development.customTemplateVariables](#developmentcustomtemplatevariables)
 * [Development](#development)
   + [New page](#new-page)
   + [Page titles](#page-titles)
@@ -75,6 +76,10 @@ Remove `.webp` `<source>` tags from a `<picture>` element while running the dev 
 *Boolean*  
 Send message to the browser if the link navigate to doesn't contain `.html`. That means it's not linked in the html with `.html` and won't work as a static site.  
 If you are planning on hosting the pages on a web server, you won't need to do so, because the server should resolve the url.
+
+### development.customTemplateVariables
+*Object*  
+Keys in this object will be made available in your ejs template pages. This way you can pass in your own arrays and objects to the template in order to build the site from the provided data.
 
 ## Development
 To develop the website, this app uses a simple [express](https://www.npmjs.com/package/express) server. To run the dev server enter `npm run dev` in the terminal.

@@ -23,7 +23,8 @@ async function compile () {
       
       const html = template({
         pagename: name,
-        frontendDevDependencies: ''
+        frontendDevDependencies: '',
+        ...config.customTemplateVariables
       })
 
       await writeFile(`${DIST_FOLDER}/${file.replace('.ejs', '')}.html`, html)
