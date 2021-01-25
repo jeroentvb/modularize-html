@@ -22,5 +22,8 @@ module.exports = {
 
   COMPILED_SUCCESSFULLY: chalk.green(`${APP_NAME} compiled successfully`),
 
-  GENERAL_ERR: (err) => chalk.red(err)
+  GENERAL_ERR: (err) => chalk.red(err),
+
+  CONFIG_CREATED: chalk.green(`${APP_NAME} config created`),
+  CONFIG_NOT_CREATED: chalk.yellow(`${APP_NAME} config not created, because it already exists`)
 }

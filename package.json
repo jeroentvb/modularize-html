@@ -4,10 +4,10 @@
   "description": "CLI package to create a static website from EJS templates",
   "main": "./bin/cli.js",
   "scripts": {
-    "build": "modularize-html build",
-    "start": "modularize-html serve",
-    "new-page": "modularize-html new-page",
-    "create-config": "modularize-html create-config",
+    "build": "npm run modularize-html build",
+    "start": "npm run modularize-html serve",
+    "new-page": "npm run modularize-html new-page",
+    "create-config": "npm run modularize-html create-config",
     "modularize-html": "node bin/cli.js",
     "dev": "nodemon --exec npm start"
   },

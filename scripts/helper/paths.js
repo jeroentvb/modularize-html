@@ -1,6 +1,6 @@
 const ROOT = process.env.PWD
 
-const CONFIG = ROOT + '/modularize-html-config.json'
+const CONFIG = ROOT + '/modularize-html-config'
 
 const DIST_FOLDER = ROOT + '/dist'
 
