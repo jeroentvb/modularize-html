@@ -1,10 +1,16 @@
 const app = require('express')
 const chokidar = require('chokidar')
 const watcher = chokidar.watch('./src', {
-  ignored: /(^|[/\\])\../
+  ignored: [
+    /(^|[/\\])\../,
+    './src/assets/css/*.scss'
+  ]
 })
 
 const routes = require('./routes')
+
+const { CONFIG } = require('../helper/paths')
+const config = require(CONFIG)
 
 const server = app()
   .set('view engine', 'ejs')
@@ -14,7 +20,7 @@ const server = app()
   .use(routes)
 
   .use(notFound)
-  .listen(3000, () => console.log(`[Server] listening on port 3000...`))
+  .listen(3000, () => console.log(`[modularize-html] listening on port 3000`))
 
 const io = require('socket.io')(server)
 
@@ -27,3 +33,9 @@ watcher
   .on('change', _path => io.emit('reload'))
   .on('unlink', _path => io.emit('reload'))
   .on('error', err => console.error('Error happened', err))
+
+if (!!config.sass) {
+  require('../helper/sass').watch()
+
+  console.log('[modularize-html] using scss')
+}
