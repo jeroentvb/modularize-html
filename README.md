@@ -18,6 +18,7 @@ Also check out the [boiler plate repo](https://github.com/jeroentvb/modularize-h
   + [development.removeWebpSources](#developmentremovewebpsources)
   + [development.staticSite](#developmentstaticsite)
   + [development.customTemplateVariables](#developmentcustomtemplatevariables)
+  + [sass](#sass)
 * [Development](#development)
   + [New page](#new-page)
   + [Page titles](#page-titles)
@@ -80,6 +81,10 @@ If you are planning on hosting the pages on a web server, you won't need to do s
 ### development.customTemplateVariables
 *Object*  
 Keys in this object will be made available in your ejs template pages. This way you can pass in your own arrays and objects to the template in order to build the site from the provided data.
+
+### sass
+*Boolean*
+To use scss while developing, set this to true. Entry file is `styles.scss`.
 
 ## Development
 To develop the website, this app uses a simple [express](https://www.npmjs.com/package/express) server. To run the dev server enter `npm run dev` in the terminal.
