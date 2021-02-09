@@ -1,4 +1,3 @@
-
 module.exports = {
   build: {
     minify: {
@@ -16,5 +15,5 @@ module.exports = {
     staticSite: true
   },
   customTemplateVariables: {},
-  sass: true
+  sass: false
 }

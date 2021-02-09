@@ -3,6 +3,7 @@ const terser = require('terser')
 
 const { readDir, readFile, writeFile } = require('../helper/fs-wrapper')
 const minifyCss = require('../helper/minify-css')
+const sass = require('../helper/sass')
 
 const {
   JS_NOT_MINIFIED,
@@ -38,6 +39,7 @@ async function js () {
 
 async function css () {
   if (!config.build.minify.css) return console.log(CSS_NOT_MINIFIED)
+  if (config.sass) sass.compile(true)
 
   try {
     if (!fs.existsSync(ASSETS_FOLDER_CSS)) fs.mkdirSync(ASSETS_FOLDER_CSS)
