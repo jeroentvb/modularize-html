@@ -19,7 +19,8 @@ module.exports = {
     removeWebpSources: true,
     staticSite: true
   },
-  customTemplateVariables: {}
+  customTemplateVariables: {},
+  sass: false
 }
 `
 
