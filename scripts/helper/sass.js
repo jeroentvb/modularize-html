@@ -10,9 +10,9 @@ function watch () {
   const sassWatcher = chokidar.watch('./src/assets/css/*.scss')
 
   sassWatcher
-    .on('add', compile)
-    .on('change', compile)
-    .on('unlink', compile)
+    .on('add', _path => compile())
+    .on('change', _path => compile())
+    .on('unlink', _path => compile())
     .on('error', err => console.error('Error happened', err))
 }
 
@@ -21,7 +21,7 @@ function compile (verbose = false) {
     const result = sass.renderSync({
       file: `${SRC_ASSETS_FOLDER}/css/styles.scss`
     })
-    
+
     fs.writeFileSync(`${SRC_ASSETS_FOLDER}/css/styles.css`, result.css)
 
     if (verbose) console.log(COMPILED_SCSS)

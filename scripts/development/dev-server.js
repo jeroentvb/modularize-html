@@ -34,7 +34,7 @@ watcher
   .on('unlink', _path => io.emit('reload'))
   .on('error', err => console.error('Error happened', err))
 
-if (!!config.sass) {
+if (config.sass) {
   require('../helper/sass').watch()
 
   console.log('[modularize-html] using scss')

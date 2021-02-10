@@ -16,7 +16,7 @@ module.exports = {
   MINIFIED_JS: chalk.green(`${APP_NAME} minified JS`),
   CSS_NOT_MINIFIED: chalk.yellow(`${APP_NAME} CSS not minfied as per build settings`),
   MINIFIED_CSS: chalk.green(`${APP_NAME} minified CSS`),
-  COMPILED_SCSS: chalk.green(`${APP_NAME} compiled SCSS'`),
+  COMPILED_SCSS: chalk.green(`${APP_NAME} compiled SCSS`),
   CSS_ERROR: (err) => chalk.red(`${APP_NAME} the css could not be minified because of the following error: ${err}`),
 
   COMPILED_TEMPLATES_SUCCESSFULLY: chalk.green(`${APP_NAME} compiled .ejs templates succesfully`),
