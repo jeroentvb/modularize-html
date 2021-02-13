@@ -4,12 +4,12 @@ const CWebp = require('cwebp').CWebp
 const { readDir } = require('../helper/fs-wrapper')
 
 const { IMAGES_NOT_ENCODED_WEBP, GENERAL_ERR, ENCODED_WEBP, COPY_SUCCESFUL } = require('../helper/messages')
-const { CONFIG, ASSETS_FOLDER_IMG, SRC_ASSETS_FOLDER } = require('../helper/paths')
+const { CONFIG, ASSETS_FOLDER_IMG, SRC_ASSETS_FOLDER, ASSETS_FOLDER } = require('../helper/paths')
 
 const config = require(CONFIG)
 
 async function copy (type) {
-  await fs.copy(`${SRC_ASSETS_FOLDER}/${type}`, `${ASSETS_FOLDER_IMG}/${type}`)
+  await fs.copy(`${SRC_ASSETS_FOLDER}/${type}`, `${ASSETS_FOLDER}/${type}`)
 
   console.log(COPY_SUCCESFUL(type))
 }
