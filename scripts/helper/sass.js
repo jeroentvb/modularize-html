@@ -7,7 +7,9 @@ const { COMPILED_SCSS } = require('./messages')
 
 function watch () {
   const chokidar = require('chokidar')
-  const sassWatcher = chokidar.watch('./src/assets/css/*.scss')
+  const sassWatcher = chokidar.watch('./src/assets/css/**/*.scss', {
+    ignoreInitial: true
+  })
 
   sassWatcher
     .on('add', _path => compile())
