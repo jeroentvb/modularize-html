@@ -1,6 +1,6 @@
 {
   "name": "modularize-html",
-  "version": "3.1.5",
+  "version": "3.1.6",
   "description": "CLI package to create a static website from EJS templates",
   "main": "./bin/cli.js",
   "scripts": {
@@ -25,7 +25,7 @@
     "cwebp": "^2.0.5",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
-    "fs-extra": "^9.1.0",
+    "fs-extra": "^10.0.1",
     "nodemon": "^2.0.12",
     "postcss": "^8.3.5",
     "sass": "^1.35.2",
