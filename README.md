@@ -1,4 +1,4 @@
-[![npm version](https://badge.fury.io/js/modularize-html.svg)](https://badge.fury.io/js/modularize-html)
+## ⚠️Archived in favour of modern frameworks that support static site generation. For example [svelte](https://svelte.dev/docs/kit/adapter-static).
 
 # Modularize html
 This CLI package uses [ejs](https://ejs.co/#docs) to allow building a static website from modular ejs (HTML) files. The main goal is to enable a developers to create a static site in a modular way. It's also meant to be as simple as possible, while applying some best practices at build.   
